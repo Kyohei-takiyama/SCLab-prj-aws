@@ -1,0 +1,64 @@
+# ユーザ更新　IDから
+PUT  http://localhost:5000/api/v1/users/627fa2b5253d769ca27cd326
+Content-Type: application/json
+
+# body
+{
+    "username":"TestUserUpdated",
+    "email":"test@test2update.com",
+    "password":"test",
+    "userId":"627fa2b5253d769ca27cd326"
+}
+
+# 以下正のレスポンス
+# HTTP/1.1 200 OK
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 326
+# ETag: W/"146-AqOb+AmCyq+kpbzy4CRaEwDpA4s"
+# Date: Fri, 13 May 2022 15:32:23 GMT
+# Connection: close
+
+# {
+#   "user": {
+#     "_id": "627e60ca2b32e7c32c08c42e",
+#     "username": "TestUserUpdated",
+#     "email": "test@test.com",
+#     "password": "test",
+#     "followers": [],
+#     "followings": [],
+#     "isAdmin": false,
+#     "isLogin": false,
+#     "isActive": false,
+#     "createdAt": "2022-05-13T13:44:42.412Z",
+#     "updatedAt": "2022-05-13T15:32:23.114Z",
+#     "__v": 0
+#   }
+# }
+
+# 以下異常のレスポンス
+# HTTP/1.1 400 Bad Request
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 47
+# ETag: W/"2f-nzzNpUfMnMrTdyUyhsup57CbRCM"
+# Date: Fri, 13 May 2022 15:34:45 GMT
+# Connection: close
+
+# {
+#   "message": "ユーザが見つかりません"
+# }
+
+
+
+# # ユーザ更新　システム管理者
+# PUT  http://localhost:5000/api/v1/users/627e60ca2b32e7c32c08c42e
+# Content-Type: application/json
+
+# # body
+# {
+#     "username":"TestUserUpdated",
+#     "email":"test@test.com",
+#     "password":"test",
+#     "isAdmin":true
+# }
