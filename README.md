@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+.env ファイルを追加
+
+npm install nodemon --save-dev
+コマンドで nodemon インストール
+
+参考ファイル
+npm start でリアクトが立ち上がらなかったら
+https://bobbyhadz.com/blog/react-module-not-found-cant-resolve-react-dom
