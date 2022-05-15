@@ -1,0 +1,9 @@
+# コメント更新　IDから
+PUT  http://localhost:5000/api/v1/comments/6280932d98ff97087c3f01b7
+Content-Type: application/json
+
+# body
+{
+    "commentDetail":"コメント更新テスト2",
+    "userId":"627e60ca2b32e7c32c08c42e"
+}

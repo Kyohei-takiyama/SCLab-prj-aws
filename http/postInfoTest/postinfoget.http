@@ -1,0 +1,39 @@
+# 投稿取得処理
+GET /api/v1/posts/627e82f8eb4c1558d59f2fa3 HTTP/1.1
+Host: localhost:5000
+
+
+# 以下正のレスポンス
+# HTTP/1.1 200 OK
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 251
+# ETag: W/"fb-Y+WiSgLGAMiqulgOYlfn6EfykRA"
+# Date: Fri, 13 May 2022 16:15:15 GMT
+# Connection: close
+
+# {
+#   "_id": "627e82f8eb4c1558d59f2fa3",
+#   "title": "テスト用投稿",
+#   "description": "テスト用投稿説明",
+#   "likes": [],
+#   "auther": "627e60ca2b32e7c32c08c42e",
+#   "comments": [],
+#   "createdAt": "2022-05-13T16:10:32.201Z",
+#   "updatedAt": "2022-05-13T16:10:32.201Z",
+#   "__v": 0
+# }
+
+
+# 以下異常のレスポンス
+# HTTP/1.1 500 Internal Server Error
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 47
+# ETag: W/"2f-JjOBkTitVsr99CrBkQTgG+3MAHo"
+# Date: Fri, 13 May 2022 16:18:55 GMT
+# Connection: close
+
+# {
+#   "message": "投稿取得に失敗しました"
+# }

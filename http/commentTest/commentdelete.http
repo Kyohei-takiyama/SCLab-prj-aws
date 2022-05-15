@@ -1,0 +1,45 @@
+# ユーザ削除　IDから
+DELETE  http://localhost:5000/api/v1/comments/6280932d98ff97087c3f01b7
+Content-Type: application/json
+
+# body
+{
+    "userId":"627e60ca2b32e7c32c08c42e"
+}
+
+# 以下正のレスポンス
+# HTTP/1.1 201 Created
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 47
+# ETag: W/"2f-VUhKcr2eN5sj6QuiMJdT41XPwTI"
+# Date: Sun, 15 May 2022 05:57:25 GMT
+# Connection: close
+
+# {
+#   "message": "コメントを削除しました"
+# }
+
+# 以下異常のレスポンス
+# HTTP/1.1 400 Bad Request
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 56
+# ETag: W/"38-GmuBrVWaLIkQA2V1SUwHus4+/VY"
+# Date: Sun, 15 May 2022 05:57:45 GMT
+# Connection: close
+
+# {
+#   "message": "コメントの削除に失敗しました"
+# }
+
+
+
+# # ユーザ削除　システム管理者
+# PUT  http://localhost:5000/api/v1/users/627e60ca2b32e7c32c08c42e
+# Content-Type: application/json
+
+# # body
+# {
+#     "isAdmin":true
+# }

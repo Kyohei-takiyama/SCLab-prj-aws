@@ -1,0 +1,26 @@
+# ユーザ作成処理
+POST http://localhost:5000/api/v1/comments
+Content-Type: application/json
+
+# body
+{
+    "commentDetail":"テスト用コメント作成",
+    "userId":"627e60ca2b32e7c32c08c42e"
+}
+
+
+# 以下正のレスポンス
+# HTTP/1.1 201 Created
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 127
+# ETag: W/"7f-SU5S4M03TBS75zQ3e78in2MJFDc"
+# Date: Sat, 14 May 2022 13:31:54 GMT
+# Connection: close
+
+# {
+#   "commentDetail": "テスト用コメント作成",
+#   "auther": "627e60ca2b32e7c32c08c42e",
+#   "_id": "627faf4acbc9dd07b26171fc",
+#   "__v": 0
+# }

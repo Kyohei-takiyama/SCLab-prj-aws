@@ -1,0 +1,44 @@
+# ユーザ作成処理
+POST http://localhost:5000/api/v1/users
+Content-Type: application/json
+
+# body
+{
+    "username":"TestUser2",
+    "email":"test@test2.com",
+    "password":"test"
+}
+
+
+# 以下正のレスポンス
+# HTTP/1.1 201 Created
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 97
+# ETag: W/"61-l+PLXtQ4+5hnVUc+pwGl3eVPJTI"
+# Date: Fri, 13 May 2022 13:44:42 GMT
+# Connection: close
+
+# ペイロード
+# {
+#   "id": "627e60ca2b32e7c32c08c42e",
+#   "username": "TestUser",
+#   "email": "test@test.com",
+#   "password": "test"
+# }
+
+
+
+# 以下異常のレスポンス
+# HTTP/1.1 400 Bad Request
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 86
+# ETag: W/"56-cGXjl9MjgBfRgNbgAfX8g2CO7cg"
+# Date: Fri, 13 May 2022 14:10:34 GMT
+# Connection: close
+
+# ペイロード
+# {
+#   "message": "このメールアドレスを持つユーザは既に登録済みです"
+# }

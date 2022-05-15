@@ -1,0 +1,47 @@
+# 投稿更新処理
+PUT /api/v1/posts/627e8dddcfe1bfe7f9dffcf6 HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+# body
+{
+    "title":"テスト用投稿更新済み",
+    "description":"テスト用投稿説明更新済み",
+    "userId":"627e60ca2b32e7c32c08c42e"
+}
+
+
+# 以下正のレスポンス
+# HTTP/1.1 200 OK
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 150
+# ETag: W/"96-YZPDfEIatJ5eIOtsDDpl/K0AiZY"
+# Date: Fri, 13 May 2022 16:59:26 GMT
+# Connection: close
+
+# {
+#   "newPost": {
+#     "acknowledged": true,
+#     "modifiedCount": 1,
+#     "upsertedId": null,
+#     "upsertedCount": 0,
+#     "matchedCount": 1
+#   },
+#   "message": "投稿更新に成功しました"
+# }
+
+
+
+# 以下異常のレスポンス
+# HTTP/1.1 403 Forbidden
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 56
+# ETag: W/"38-dOL0vSxwfIKjEE8ojgm+fH0a0ME"
+# Date: Fri, 13 May 2022 17:00:58 GMT
+# Connection: close
+
+# {
+#   "message": "他の人の投稿を編集出来ません"
+# }

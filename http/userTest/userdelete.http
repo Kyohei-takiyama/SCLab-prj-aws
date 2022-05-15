@@ -1,0 +1,45 @@
+# ユーザ削除　IDから
+DELETE  http://localhost:5000/api/v1/users/627fa2b5253d769ca27cd326
+Content-Type: application/json
+
+# body
+{
+    "userId":"627fa2b5253d769ca27cd326"
+}
+
+# 以下正のレスポンス
+# HTTP/1.1 200 OK
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 44
+# ETag: W/"2c-hk8cHuPxY9lfiEzLzQ9z+VaWr8s"
+# Date: Fri, 13 May 2022 15:42:46 GMT
+# Connection: close
+
+# {
+#   "message": "ユーザを削除しました"
+# }
+
+# 以下異常のレスポンス
+# HTTP/1.1 403 Forbidden
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 47
+# ETag: W/"2f-nzzNpUfMnMrTdyUyhsup57CbRCM"
+# Date: Fri, 13 May 2022 15:47:04 GMT
+# Connection: close
+
+# {
+#   "message": "ユーザが見つかりません"
+# }
+
+
+
+# # ユーザ削除　システム管理者
+# PUT  http://localhost:5000/api/v1/users/627e60ca2b32e7c32c08c42e
+# Content-Type: application/json
+
+# # body
+# {
+#     "isAdmin":true
+# }
