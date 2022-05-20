@@ -69,6 +69,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+■ 開発メモ
+・初期化時処理
 .env ファイルを追加
 
 npm install nodemon --save-dev
@@ -77,3 +79,18 @@ npm install nodemon --save-dev
 参考ファイル
 npm start でリアクトが立ち上がらなかったら
 https://bobbyhadz.com/blog/react-module-not-found-cant-resolve-react-dom
+
+・マテリアル UI
+npm install @material-ui/core
+npm install @material-ui/icons
+npm install @mui/material @emotion/react @emotion/styled
+
+head
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
+
+マテリアル UI アイコン
+https://mui.com/material-ui/material-icons/
