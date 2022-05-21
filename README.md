@@ -94,3 +94,9 @@ head
 
 マテリアル UI アイコン
 https://mui.com/material-ui/material-icons/
+
+■ ワークツリーとステージングエリアの差分確認
+git diff
+
+■ ステージングエリア Git ディレクトリとの差分確認
+git diff --cached
