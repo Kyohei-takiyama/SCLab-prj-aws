@@ -136,4 +136,19 @@ git checkout ブランチ名
 git log
 git log -p
 
-■
+■ ブランチをリモートリポジトリに反映する方法
+git push origin ブランチ名
+
+■ リモートからローカルへ反映する方法
+git pull origin master
+master 部分はプルしたいブランチを記載
+プル ＝ fetch + marge
+
+git fetch origin
+origin 部分はフェッチ先のリモートリポジトリの名前
+fetch はリモートリポジトリの状態をローカルリポジトリに反映
+リモートリポジトリにしかないブランチを取得する際にも使用
+
+最新版の反映方法
+1 git checkout master
+2 git pull origin master
