@@ -1,11 +1,12 @@
 import React from "react";
+import Blog from "./materialHome/Blog";
 
-function Home() {
+const Home = () => {
   return (
     <div>
-      <h1>ホーム画面</h1>
+      <Blog />
     </div>
   );
-}
+};
 
 export default Home;

@@ -28,21 +28,24 @@ import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Notfoundpage from "./pages/error/404/Notfoundpage";
 import Profile from "./pages/profile/Profile";
+import Login from "./pages/login/Login";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <Router>
-      <nav>
+      {/* <nav>
         <Link to="/">Home</Link>
         <Link to="/material">MaterialPage</Link>
-      </nav>
+      </nav> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/material" element={<Material />} />
         <Route path="/profile/:userid" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
-      <div>footer</div>
+      <Footer />
     </Router>
   );
 }
