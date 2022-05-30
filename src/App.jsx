@@ -31,7 +31,15 @@ import Profile from "./pages/profile/Profile";
 import Login from "./pages/login/Login";
 import Footer from "./components/footer/Footer";
 
+// コンテキスト
+import { UserInfoContext } from "./components/providers/UserInfoProvider";
+import { useContext } from "react";
+
 function App() {
+  // コンテキストチェック
+  const contextUserInfoValue = useContext(UserInfoContext);
+  console.log("contextUserInfoValue", contextUserInfoValue);
+
   return (
     <Router>
       {/* <nav>
@@ -45,7 +53,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
-      <Footer />
+      <Footer title="ServiceCloudLab" description="CX命" />
     </Router>
   );
 }
