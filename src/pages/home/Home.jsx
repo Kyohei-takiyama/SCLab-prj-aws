@@ -3,9 +3,9 @@ import Blog from "./materialHome/Blog";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Blog />
-    </div>
+    </>
   );
 };
 

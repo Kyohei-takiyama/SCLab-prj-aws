@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 // import Link from "@mui/material/Link";
 import { Link, useNavigate } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { UserInfoContext } from "../providers/UserInfoProvider";
 
 function Header(props) {
   const { sections, title } = props;
@@ -15,65 +16,61 @@ function Header(props) {
   // onClick={() => navigate("/")} => ホーム画面へルーティング
   let navigate = useNavigate();
 
+  const contextUserInfoValue = React.useContext(UserInfoContext);
+  const { userInfo } = contextUserInfoValue;
+
   return (
-    <React.Fragment>
-      <Toolbar
-        sx={{
-          borderBottom: 1,
-          borderColor: "divider",
-          flex: 2,
-          justifyContent: "space-between",
-        }}
-      >
-        <div className="">
-          <IconButton>
-            <FavoriteIcon style={{ color: "#1976D2" }} />
-          </IconButton>
-          <Button size="small">Service Cloud Lab</Button>
-        </div>
-        {/* <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          sx={{ flex: 1 }}
-        >
-          {title}
-        </Typography> */}
-        <IconButton>{/* <SearchIcon /> */}</IconButton>
-        <div className="">
-          <Button variant="contained" size="small" sx={{ mr: 2 }}>
-            Sign up
-          </Button>
-          <Button
-            onClick={() => navigate("/login")}
-            variant="outlined"
-            size="small"
+    <>
+      {userInfo.isAuthed ? (
+        <React.Fragment>
+          <Toolbar
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              flex: 2,
+              justifyContent: "space-between",
+            }}
           >
-            Log in
-          </Button>
-        </div>
-      </Toolbar>
-      {/* <Toolbar
-        component="nav"
-        variant="dense"
-        sx={{ justifyContent: "space-between", overflowX: "auto" }}
-      >
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
+            <div className="">
+              <IconButton>
+                <FavoriteIcon style={{ color: "#1976D2" }} />
+              </IconButton>
+              <Button size="small">Service Cloud Lab</Button>
+            </div>
+          </Toolbar>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Toolbar
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              flex: 2,
+              justifyContent: "space-between",
+            }}
           >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar> */}
-    </React.Fragment>
+            <div className="">
+              <IconButton>
+                <FavoriteIcon style={{ color: "#1976D2" }} />
+              </IconButton>
+              <Button size="small">Service Cloud Lab</Button>
+            </div>
+            <div className="">
+              <Button variant="contained" size="small" sx={{ mr: 2 }}>
+                Sign up
+              </Button>
+              <Button
+                onClick={() => navigate("/login")}
+                variant="outlined"
+                size="small"
+              >
+                SIGN IN
+              </Button>
+            </div>
+          </Toolbar>
+        </React.Fragment>
+      )}
+    </>
   );
 }
 
