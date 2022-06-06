@@ -27,16 +27,6 @@ connectDB();
 // JSONをExpressで使用することを宣言
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-/**
- * ルーティング
- */
-// ユーザ関係ルーティング
-app.use("/api/v1/users", require("./routes/userRouters"));
-// 投稿関係ルーティング
-app.use("/api/v1/posts", require("./routes/postInfoRouters"));
-// コメント関係ルーティング
-
 /**
  * Salesforce接続処理
  */
@@ -48,6 +38,15 @@ app.use(
     optionsSuccessStatus: 200, //レスポンスstatusを200に設定
   })
 );
+
+/**
+ * ルーティング
+ */
+// ユーザ関係ルーティング
+app.use("/api/v1/users", require("./routes/userRouters"));
+// 投稿関係ルーティング
+app.use("/api/v1/posts", require("./routes/postInfoRouters"));
+// コメント関係ルーティング
 
 // Salesforceとのコネクションを設定
 const conn = new jsforce.Connection({

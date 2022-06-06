@@ -11,6 +11,7 @@ const {
   getAllUser,
   registerUser,
   deleteUser,
+  loginUser,
 } = require("../controllers/userController");
 const router = express.Router();
 
@@ -18,6 +19,7 @@ const router = express.Router();
 router.get("/", getAllUser);
 
 //=============================================POST
+router.post("/login", loginUser);
 router.post("/", registerUser);
 
 //=============================================PUT

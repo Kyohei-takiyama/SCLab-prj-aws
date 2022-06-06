@@ -22,7 +22,13 @@ import Material from "./materialuisample/Material";
  *  useNavigate : ナビゲートさせる関数 使用方法はMaterialページ参照
  *  useParams : パスパラメータを取得 使用方法はProfileページ参照
  */
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 // コンポーネント
 import Home from "./pages/home/Home";
@@ -30,15 +36,19 @@ import Notfoundpage from "./pages/error/404/Notfoundpage";
 import Profile from "./pages/profile/Profile";
 import Login from "./pages/login/Login";
 import Footer from "./components/footer/Footer";
+import SignUp from "./pages/signup/SignUp";
 
 // コンテキスト
-import { UserInfoContext } from "./components/providers/UserInfoProvider";
+// import { UserInfoContext } from "./components/providers/UserInfoProvider";
 import { useContext } from "react";
+import { AuthContext } from "./state/AuthContext";
 
 function App() {
   // コンテキストチェック
-  const contextUserInfoValue = useContext(UserInfoContext);
-  console.log("contextUserInfoValue", contextUserInfoValue);
+  // const contextUserInfoValue = useContext(UserInfoContext);
+  const { user } = useContext(AuthContext);
+  // console.log("contextUserInfoValue", contextUserInfoValue);
+  console.log("loginUser", user);
 
   return (
     <Router>
@@ -47,13 +57,22 @@ function App() {
         <Link to="/material">MaterialPage</Link>
       </nav> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={user ? <Home /> : <SignUp />} />
         <Route path="/material" element={<Material />} />
         <Route path="/profile/:userid" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
+        {/* ログインに成功しユーザ情報が取得できた場合はホーム画面へリダイレクト */}
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        {/* ユーザ作成に成功しユーザ情報が取得できた場合はホーム画面へリダイレクト */}
+        <Route
+          path="/signup"
+          element={user ? <Navigate to="/" /> : <SignUp />}
+        />
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
-      <Footer title="ServiceCloudLab" description="CX命" />
+      <Footer
+        title="ServiceCloudLab"
+        description="customer service and support"
+      />
     </Router>
   );
 }

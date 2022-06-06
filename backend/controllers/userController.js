@@ -44,8 +44,6 @@ const registerUser = async (req, res) => {
     return res.status.json({ error, message: "ユーザ作成に失敗しました" });
   }
 
-  // パスワードハッシュか処理
-
   /**
    * @description ユーザ作成処理
    * @returns 新規作成されたユーザ
@@ -73,6 +71,27 @@ const registerUser = async (req, res) => {
     return res
       .status(500)
       .json({ error, message: "ユーザの作成に失敗しました" });
+  }
+};
+
+/**
+ * @description login
+ * @method POST
+ * @route /api/v1/users/login
+ * @body  なし
+ */
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email });
+    if (!user) return res.status(400).send("ユーザが見つかりません");
+
+    const valiedPassword = password === user.password;
+    if (!valiedPassword) return res.status(400).json("パスワードが違います");
+
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json(error);
   }
 };
 
@@ -139,6 +158,7 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
   registerUser,
+  loginUser,
   getAllUser,
   updateUser,
   deleteUser,
